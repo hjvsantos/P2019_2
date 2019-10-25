@@ -4,17 +4,17 @@
 #include <locale.h>
 
 //Aqui é a estrutura do Aluno
-struct Usuario{
+typedef struct{
 int idade;
 char Nome[100];
 char Telefone[10];
-};
+}Aluno;
 
 // Aqui é a estrutura da base
-struct node {
-    int data;
+typedef struct{
+    Aluno data;
     struct node *pLink;
-};
+}node;
 
 // Aqui é para chamar a ação desejada pelo usuário
 void executar(char tecla){
@@ -29,6 +29,26 @@ void executar(char tecla){
   }else{
    exit(0);
   }
+}
+
+node inserir(){
+node *novoNo = NULL;
+
+Aluno aluno_1;
+
+printf("Qual o nome do Aluno que você deseja inserir?\n");
+scanf("%c",&aluno_1.Nome);
+
+printf("Qual a idade do Aluno que você deseja inserir?\n");
+scanf("%i",&aluno_1.idade);
+
+printf("Qual o telefone do Aluno que você deseja inserir?\n");
+scanf("%c",&aluno_1.Telefone);
+
+novoNo = (struct node*) malloc(sizeof(struct node*));
+novoNo->data=aluno_1;
+
+return *novoNo;
 }
 
 
