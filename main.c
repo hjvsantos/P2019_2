@@ -3,16 +3,20 @@
 #include <malloc.h>
 #include <locale.h>
 
+//Aqui é a estrutura do Aluno
 struct Usuario{
 int idade;
 char Nome[100];
 char Telefone[10];
 };
 
-void criarLista(){
+// Aqui é a estrutura da base
+struct node {
+    int data;
+    struct node *pLink;
+};
 
-}
-
+// Aqui é para chamar a ação desejada pelo usuário
 void executar(char tecla){
   if(tecla == '1'){
    //inserir();
@@ -27,6 +31,8 @@ void executar(char tecla){
   }
 }
 
+
+//Função responsável pela criação do Menu
  void CriaMenu(){
   char tecla;
     printf("1 - Para Inserir um Aluno;\n");
