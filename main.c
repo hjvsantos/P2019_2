@@ -2,9 +2,9 @@
 #include <stdlib.h>
 
 struct Usuario{
-int ID;
-char nome[100];
 int idade;
+char Nome[100];
+char Telefone[10];
 };
 
 int main()
