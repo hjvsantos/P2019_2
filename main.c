@@ -3,29 +3,29 @@
 #include <malloc.h>
 #include <locale.h>
 
-//Aqui é a estrutura do Aluno
+//Aqui ï¿½ a estrutura do Aluno
 typedef struct{
 int idade;
 char Nome[100];
 char Telefone[10];
 }Aluno;
 
-// Aqui é a estrutura da base
+// Aqui ï¿½ a estrutura da base
 typedef struct{
     Aluno data;
     struct node *pLink;
 }node;
 
-// Aqui é para chamar a ação desejada pelo usuário
+// Aqui ï¿½ para chamar a aï¿½ï¿½o desejada pelo usuï¿½rio
 void executar(char tecla){
   if(tecla == '1'){
    //inserir();
   }else if(tecla == '2'){
-   //  pesquisar();
+   //pesquisar();
   }else if(tecla=='3'){
-   //   remover();
+   //remover();
   }else if(tecla=='4'){
-   //  listar();
+   //listar();
   }else{
    exit(0);
   }
@@ -36,13 +36,13 @@ node *novoNo = NULL;
 
 Aluno aluno_1;
 
-printf("Qual o nome do Aluno que você deseja inserir?\n");
+printf("Qual o nome do Aluno que vocï¿½ deseja inserir?\n");
 scanf("%c",&aluno_1.Nome);
 
-printf("Qual a idade do Aluno que você deseja inserir?\n");
+printf("Qual a idade do Aluno que vocï¿½ deseja inserir?\n");
 scanf("%i",&aluno_1.idade);
 
-printf("Qual o telefone do Aluno que você deseja inserir?\n");
+printf("Qual o telefone do Aluno que vocï¿½ deseja inserir?\n");
 scanf("%c",&aluno_1.Telefone);
 
 novoNo = (struct node*) malloc(sizeof(struct node*));
@@ -52,7 +52,18 @@ return *novoNo;
 }
 
 
-//Função responsável pela criação do Menu
+//Funcao que vai listar nossa lista encadeada
+void printKeys(LinkedList *list){
+    item* ptrTemp = list->head;
+    while (ptrTemp->next != NULL) {
+        printf("%d",ptrTemp->data);
+        ptrTemp = ptrTemp->next;
+    }
+    printf("%d\n",ptrTemp->data);
+}
+
+
+//Funï¿½ï¿½o responsï¿½vel pela criaï¿½ï¿½o do Menu
  void CriaMenu(){
   char tecla;
     printf("1 - Para Inserir um Aluno;\n");
