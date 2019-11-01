@@ -49,7 +49,7 @@ void criarLista(int n)
 
         printf(" Input data for node 1 : ");
         scanf("%d", &num);
-        stnode->num = num;      
+        stnode->num = num;
         stnode->nextptr = NULL; // links the address field to NULL
         tmp = stnode;
 // Creating n nodes and adding to linked list
@@ -65,12 +65,12 @@ void criarLista(int n)
             {
                 printf(" Input data for node %d : ", i);
                 scanf(" %d", &num);
- 
+
                 fnNode->num = num;      // links the num field of fnNode with num
                 fnNode->nextptr = NULL; // links the address field of fnNode with NULL
- 
+
                 tmp->nextptr = fnNode; // links previous node i.e. tmp to the fnNode
-                tmp = tmp->nextptr; 
+                tmp = tmp->nextptr;
             }
         }
     }
@@ -96,6 +96,18 @@ novoNo->data=aluno_1;
 return *novoNo;
 }
 
+//Funcao que vai procurar na lista encadeada
+long search(long *pointer, long n, long find)
+{
+   long c;
+
+   for (c = 0; c < n; c++) {
+      if (*(pointer+c) == find)
+         return c;
+   }
+
+   return -1;
+}
 
 //Funcao que vai listar nossa lista encadeada
 void printKeys(LinkedList *list){
