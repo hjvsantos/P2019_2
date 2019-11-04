@@ -5,10 +5,9 @@
 //Ajustes - tassia
 typedef struct Temp
   {
-    int matricula;
+    int idade;
     char nome[50];
-    char curso[50];
-    char datnasc[30];
+    char telefone[50];
     struct Temp *prox;
   }lista;
   // cria o inicio da lista
@@ -30,14 +29,12 @@ int cadastro()
       printf("Erro de alocacao\n");
       return 0;
     }
-  printf("Digite a matricula:");
-  scanf("%d",&ponteiro->matricula);
+  printf("Digite a idade:");
+  scanf("%d",&ponteiro->idade);
   printf("Digite o nome:");
   scanf(" %[^\n]",ponteiro->nome);
-  printf("Digite o curso:");
-  scanf(" %[^\n]",ponteiro->curso);
-  printf("Digite a data de nascimento:");
-  scanf(" %[^\n]",ponteiro->datnasc);
+  printf("Digite o telefone:");
+  scanf(" %[^\n]",ponteiro->telefone);
   ponteiro->prox = NULL;
     if (inicio==NULL)
       {
@@ -61,10 +58,9 @@ void imprime()
   }
   ponteirolista = inicio;
   while (ponteirolista !=NULL) {
-    printf("Matricula = %d\n",ponteirolista->matricula);
+    printf("Idade = %d\n",ponteirolista->idade);
     printf("Nome = %s\n",ponteirolista->nome);
-    printf("Curso = %s\n",ponteirolista->curso);
-    printf("Data de Nascimento = %s\n",ponteirolista->datnasc);
+    printf("Telefone = %s\n",ponteirolista->telefone);
     ponteirolista = ponteirolista->prox;
     getchar();
     getchar();
@@ -81,20 +77,19 @@ void imprimeponterio(lista *ponteirolista)///para imprimir resultado da função
     return;
   }
     printf("funcao-impressao--ponteiro ---\n\n");
-    printf("Matricula = %d\n",ponteirolista->matricula);
+    printf("Idade = %d\n",ponteirolista->idade);
     printf("Nome = %s\n",ponteirolista->nome);
-    printf("Curso = %s\n",ponteirolista->curso);
-    printf("Data de Nascimento = %s\n",ponteirolista->datnasc);
+    printf("Telefone = %s\n",ponteirolista->telefone);
     getchar();
     getchar();
 }
 
 ///-------------------------------------------------pesquisa
-///pesquisa por matricula
-lista *pesquisamatricula()
+///pesquisa por idade
+lista *pesquisaidade()
 {
    int dado;
-   printf("Digite a matricula:");
+   printf("Digite a idade:");
    scanf("%d",&dado);
   lista *ponteiro;
   if (inicio == NULL)
@@ -104,11 +99,11 @@ lista *pesquisamatricula()
   // Caso a lista nao esteja vazia
   ponteiro = inicio;
   while (ponteiro !=NULL) {
-     printf("procurando %d==%d\n",dado,ponteiro->matricula);///comentar parar para de mostra lixo na tela
+     printf("procurando %d==%d\n",dado,ponteiro->idade);///comentar parar para de mostra lixo na tela
      getchar();///comentar ai ñ pede enter
-    if (ponteiro->matricula == dado)  // achou !!
+    if (ponteiro->idade == dado)  // achou !!
     {
-       printf("\nACHOU %d==%d!!!\n",ponteiro->matricula,dado);
+       printf("\nACHOU %d==%d!!!\n",ponteiro->idade,dado);
 
    return (ponteiro);        // retorna um ponteiro para função imprimir ponteiro
 
@@ -181,7 +176,7 @@ int removedado(int dado)
       antes = inicio;
       while (ptr !=NULL)
       {
-    if (ptr->matricula == dado) // achou !!
+    if (ptr->idade== dado) // achou !!
     {
       if (ptr == inicio) // se esta removendo o primeiro da lista
       {
@@ -224,13 +219,13 @@ int main()
   imprime();///imprimir os dados cadastrados
   //-------------
   voltamenu :
-  printf("Menu:\n1_Pesquisa por Matricula\n2_Pesquisa por Nome\n3_Remover\n4_Imprimi\n0_Sair:\n:");
+  printf("Menu:\n1_Pesquisa por Idade\n2_Pesquisa por Nome\n3_Remover\n4_Imprimi\n0_Sair:\n:");
   scanf("%d",&op);
   switch (op)
             {
               case 1:
                     {
-                      imprimeponterio(pesquisamatricula());///pesquisa a matricula e retorna para funcao o ponterio para imprimir
+                      imprimeponterio(pesquisaidade());///pesquisa a idade e retorna para funcao o ponterio para imprimir
                       break;
                     }
 
@@ -242,7 +237,7 @@ int main()
               case 3:
                 {
                    imprime();
-                   removedado(pesquisamatricula()->matricula);///a pesquisa retorna um ponteiro para a funcao remover
+                   removedado(pesquisaidade()->idade);///a pesquisa retorna um ponteiro para a funcao remover
                    printf("Removido... imprimindo lista \n");
                    imprime();
                    break;
