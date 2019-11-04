@@ -85,42 +85,12 @@ void imprimeponterio(lista *ponteirolista)///para imprimir resultado da função
 }
 
 ///-------------------------------------------------pesquisa
-///pesquisa por idade
-lista *pesquisaidade()
-{
-   int dado;
-   printf("Digite a idade:");
-   scanf("%d",&dado);
-  lista *ponteiro;
-  if (inicio == NULL)
-  {
-    return NULL;  // Lista Vazia
-  }
-  // Caso a lista nao esteja vazia
-  ponteiro = inicio;
-  while (ponteiro !=NULL) {
-     printf("procurando %d==%d\n",dado,ponteiro->idade);///comentar parar para de mostra lixo na tela
-     getchar();///comentar ai ñ pede enter
-    if (ponteiro->idade == dado)  // achou !!
-    {
-       printf("\nACHOU %d==%d!!!\n",ponteiro->idade,dado);
+///pesquisa por telefone
 
-   return (ponteiro);        // retorna um ponteiro para função imprimir ponteiro
-
-                   }
-    else
-    {
-
-        ponteiro = ponteiro->prox;
-
-     }
-  }
-  return NULL;
-}
-lista *pesquisanome()
+lista *pesquisatelefone()
 {
    char pesq[50];
-   printf("Digite o nome:");
+   printf("Digite o telefone:");
    scanf(" %[^\n]",pesq);
   lista *ponteiro;
   if (inicio == NULL)
@@ -130,11 +100,11 @@ lista *pesquisanome()
   // Caso a lista nao esteja vazia
   ponteiro = inicio;
   while (ponteiro !=NULL) {
-     printf("procurando %s==%s\n",pesq,ponteiro->nome);///comentar parar para de mostra lixo na tela
+     printf("procurando %s==%s\n",pesq,ponteiro->telefone);///comentar parar para de mostra lixo na tela
      getchar();///comentar ai ñ pede enter
-    if (strcmp (ponteiro->nome,pesq)== 0 )  // achou !!
+    if (strcmp (ponteiro->telefone,pesq)== 0 )  // achou !!
     {
-            printf("\nACHOU %s==%s!!!\n",ponteiro->nome,pesq);
+            printf("\nACHOU %s==%s!!!\n",ponteiro->telefone,pesq);
          return (ponteiro);        // retorna um ponteiro para função imprimr
 
                    }
@@ -219,30 +189,24 @@ int main()
   imprime();///imprimir os dados cadastrados
   //-------------
   voltamenu :
-  printf("Menu:\n1_Pesquisa por Idade\n2_Pesquisa por Nome\n3_Remover\n4_Imprimi\n0_Sair:\n:");
+  printf("Menu:\n1Pesquisa por telefone\n2_Remover\n3_Imprimi\n0_Sair:\n:");
   scanf("%d",&op);
   switch (op)
             {
               case 1:
                     {
-                      imprimeponterio(pesquisaidade());///pesquisa a idade e retorna para funcao o ponterio para imprimir
+                      imprimeponterio(pesquisatelefone());
                       break;
                     }
-
               case 2:
-                    {
-                      imprimeponterio(pesquisanome());
-                      break;
-                    }
-              case 3:
                 {
                    imprime();
-                   removedado(pesquisaidade()->idade);///a pesquisa retorna um ponteiro para a funcao remover
+                   removedado(pesquisatelefone()->telefone);///a pesquisa retorna um ponteiro para a funcao remover
                    printf("Removido... imprimindo lista \n");
                    imprime();
                    break;
                 }
-              case 4:
+              case 3:
                     {
                       imprime();
                       break;
