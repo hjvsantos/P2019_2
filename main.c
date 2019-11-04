@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+
+//Ajustes - tassia
 typedef struct Temp
   {
     int matricula;
