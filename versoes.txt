@@ -1,9 +1,3 @@
 #define VERSAO1
-#Oi migo
-
 #define VERSAO2
-
-
 #define VERSAO3
-
-

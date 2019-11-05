@@ -176,31 +176,11 @@ void removedado(char *dado)
   }
 }
 
-int main()
-{
-  //LEITURA DE ARQUIVO: criando a variável ponteiro para o arquivo
-  FILE *pont_arq;
-  char texto_str[20]; //acho que nao eh necessario
-
-  //abrindo o arquivo_frase em modo "somente leitura"
-  pont_arq = fopen("arquivo_palavra.txt", "r");
-
-  //enquanto não for fim de arquivo o looping será executado e será impresso o texto
-  //adaptar a nossa realidade!
-  while(fgets(texto_str, 20, pont_arq) != NULL)
-  printf("%s", texto_str);
-
-  //fechando o arquivo - é pra tá aqui mesmo?!
-  fclose(pont_arq);
-
-  getch();
-  return(0);
-  //acaba aqui a estrutura para a leitura do arquivo
-
-  criaLista();///iniciar a lista
-  int op;
-  voltamenu :
-  //#ifdef VERSAO1
+configuraMenu(int op){
+    if(op=1){
+        //#ifdef VERSAO1
+  criaLista();
+  voltamenu:
   printf("\nMenu:\n\n1_Inserir\n0_Sair:\n:");
   scanf("%d",&op);
   switch (op)
@@ -218,9 +198,12 @@ int main()
                       break;
                     }
             }
+        goto voltamenu;
     //#endif
-
-  //#ifdef VERSAO2
+    }else if(op = 2){
+        //#ifdef VERSAO2
+  criaLista();
+  voltamenu1:
   printf("\nMenu:\n\n1_Inserir\n2_Remover\n0_Sair:\n:");
   scanf("%d",&op);
   switch (op)
@@ -247,8 +230,11 @@ int main()
                     }
             }
     //#endif
-
-  //#ifdef VERSAO3
+    goto voltamenu1;
+    }else if(op=3){
+         //#ifdef VERSAO3
+  criaLista();
+  voltamenu2:
   printf("\nMenu:\n\n1_Inserir\n2_Pesquisa por telefone\n3_Remover\n4_Imprimir\n0_Sair:\n:");
   scanf("%d",&op);
   switch (op)
@@ -284,8 +270,37 @@ int main()
                       break;
                     }
             }
+       goto voltamenu2;
     //#endif
+    }
+}
 
-  goto voltamenu; //simplesmente volta ao menu
+int main()
+{
+  FILE *arq;
+  char Linha[100];
+  char *result;
+  int i;
+
+  // Abre um arquivo TEXTO para LEITURA
+  arq = fopen("versoes.txt", "rt");
+  if (arq == NULL)  // Se houve erro na abertura
+  {
+     printf("Problemas na abertura do arquivo\n");
+     return;
+  }
+  i = 1;
+  while (!feof(arq))
+  {
+	// Lê uma linha (inclusive com o '\n')
+      result = fgets(Linha, 100, arq);  // o 'fgets' lê até 99 caracteres ou até o '\n'
+      if (result)  // Se foi possível ler
+	  printf("Linha %d : %s",i,Linha);
+      i++;
+  }
+  fclose(arq);
+  criaLista();///iniciar a lista
+  int op;
+  configuraMenu(2);
   return 0;
 }
