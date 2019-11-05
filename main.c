@@ -6,8 +6,8 @@
 typedef struct Temp
   {
     int idade;
-    char nome[50];
-    char telefone[50];
+    char nome[40];
+    char telefone[11];
     struct Temp *prox;
   }lista;
   // cria o inicio da lista
@@ -89,7 +89,7 @@ void imprimeponterio(lista *ponteirolista)///para imprimir resultado da função
 
 lista *pesquisatelefone()
 {
-   char pesq[50];
+   char pesq[11];
    printf("Digite o telefone:");
    scanf(" %[^\n]",pesq);
   lista *ponteiro;
