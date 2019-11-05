@@ -175,19 +175,6 @@ int main()
 {
   criaLista();///iniciar a lista
   int op;
-  for(;;) //loop infinito ate condicao de parada 'break'
-    {
-    //cadastro();
-    //printf("Menu cadastro:\n1_Novo\t0_Sair:");
-    //scanf("%d",&op);
-      //if(op==0)//caso 0 sair do loop
-      //{
-        //break;
-      //}
-    //}
-    //printf(">>Dados cadastrados<<\n");
-  //imprime();///imprimir os dados cadastrados
-  //-------------
   voltamenu :
   printf("\nMenu:\n\n1_Inserir\n2_Pesquisa por telefone\n3_Remover\n4_Imprimir\n0_Sair:\n:");
   scanf("%d",&op);
@@ -228,4 +215,4 @@ int main()
 
   goto voltamenu; //simplesmente volta ao menu
   return 0;
-}}
+}
