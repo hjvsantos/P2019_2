@@ -177,7 +177,7 @@ void removedado(char *dado)
 }
 
 configuraMenu(int op){
-    if(op=1){
+    if(op==1){
         //#ifdef VERSAO1
   criaLista();
   voltamenu:
@@ -200,7 +200,7 @@ configuraMenu(int op){
             }
         goto voltamenu;
     //#endif
-    }else if(op = 2){
+    }else if(op == 2){
         //#ifdef VERSAO2
   criaLista();
   voltamenu1:
@@ -231,7 +231,7 @@ configuraMenu(int op){
             }
     //#endif
     goto voltamenu1;
-    }else if(op=3){
+    }else if(op == 3){
          //#ifdef VERSAO3
   criaLista();
   voltamenu2:
@@ -281,6 +281,7 @@ int main()
   char Linha[100];
   char *result;
   int i;
+  int op;
 
   // Abre um arquivo TEXTO para LEITURA
   arq = fopen("versoes.txt", "rt");
@@ -294,13 +295,14 @@ int main()
   {
 	// Lê uma linha (inclusive com o '\n')
       result = fgets(Linha, 100, arq);  // o 'fgets' lê até 99 caracteres ou até o '\n'
-      if (result)  // Se foi possível ler
+      int tam = strlen(result);
+
+      if (op == result[tam-1])  // Se foi possível ler
 	  printf("Linha %d : %s",i,Linha);
       i++;
   }
   fclose(arq);
-  criaLista();///iniciar a lista
-  int op;
-  configuraMenu(2);
+  criaLista();
+  //configuraMenu(3);
   return 0;
 }
