@@ -104,7 +104,7 @@ lista *pesquisatelefone()
      getchar();///comentar ai ñ pede enter
     if (strcmp (ponteiro->telefone,pesq)== 0 )  // achou !!
     {
-            printf("\nACHOU %s==%s!!!\n",ponteiro->telefone,pesq);
+            printf("\nRegistro encontrado para realizar a remoção\n");
          return (ponteiro);        // retorna um ponteiro para função imprimr
 
                    }
@@ -206,10 +206,10 @@ int main()
                     }
               case 3:
                     {
-                   imprime();
+                   //imprime();
                    removedado(pesquisatelefone()->telefone);///a pesquisa retorna um ponteiro para a funcao remover
                    printf("Removido... imprimindo lista \n");
-                   imprime();
+                   //imprime();
                    break;
                     }
               case 4:
