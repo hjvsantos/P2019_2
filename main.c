@@ -105,8 +105,8 @@ lista *pesquisatelefone()
   // Caso a lista nao esteja vazia
   ponteiro = inicio;
   while (ponteiro !=NULL) {
-     printf("procurando %s==%s\n",pesq,ponteiro->telefone);///comentar parar para de mostra lixo na tela
-     getchar();///comentar ai ñ pede enter
+     //printf("procurando %s==%s\n",pesq,ponteiro->telefone);///comentar para parar de mostra lixo na tela
+     getchar();
     if (strcmp (ponteiro->telefone,pesq)== 0 )  // achou !!
     {
             printf("\nRegistro encontrado\n");
@@ -122,6 +122,50 @@ lista *pesquisatelefone()
   }
   return NULL;
 }
+
+
+lista *atualizarAluno()
+{
+   char pesq[11];
+   printf("Digite o telefone:");
+   scanf(" %[^\n]",pesq);
+  lista *ponteiro;
+  if (inicio == NULL)
+  {
+    return NULL;  // Lista Vazia
+  }
+  // Caso a lista nao esteja vazia
+  ponteiro = inicio;
+  while (ponteiro !=NULL) {
+     printf("procurando %s==%s\n",pesq,ponteiro->telefone);///comentar parar para de mostra lixo na tela
+     getchar();///comentar ai ñ pede enter
+    if (strcmp (ponteiro->telefone,pesq)== 0 )  // achou !!
+    {
+            printf("\nRegistro encontrado\n");
+            char novo_nome[40];
+            int nova_idade;
+            printf("\nInforme o novo nome?");
+            scanf("%s", &novo_nome);
+            printf("\nInforme a nova idade?");
+            scanf("%i", &nova_idade);
+            ponteiro->idade = nova_idade;
+            sprintf(ponteiro->nome,"%s", novo_nome);
+            //ponteiro->nome = novo_nome;
+            printf("\n\nAtualizacao realizada com sucesso!!!");
+
+         return (ponteiro);        // retorna um ponteiro para função imprimr
+
+                   }
+    else
+    {
+
+        ponteiro = ponteiro->prox;
+
+     }
+  }
+  return NULL;
+}
+
 
 ///esvazia a fila
 void  libera (lista* l)
@@ -241,7 +285,7 @@ scanf("%d", &op);
 #ifdef VERSAO3
   criaLista();
   voltamenu2:
-  printf("\nMenu:\n\n1_Inserir\n2_Pesquisa por telefone\n3_Remover\n4_Imprimir\n0_Sair:\n:");
+  printf("\nMenu:\n\n1_Inserir\n2_Atualizar\n3_Remover\n4_Imprimir\n0_Sair:\n:");
   scanf("%d",&op);
   switch (op)
             {
@@ -253,7 +297,7 @@ scanf("%d", &op);
                     }
               case 2:
                     {
-                      imprimeponterio(pesquisatelefone());
+                      atualizarAluno();
                       break;
                     }
               case 3:
