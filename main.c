@@ -174,39 +174,45 @@ int removedado(int dado)
 int main()
 {
   criaLista();///iniciar a lista
-  int op=1;
+  int op;
   for(;;) //loop infinito ate condicao de parada 'break'
     {
-    cadastro();
-    printf("Menu cadastro:\n1_Novo\t0_Sair:");
-    scanf("%d",&op);
-      if(op==0)//caso 0 sair do loop
-      {
-        break;
-      }
-    }
-    printf(">>Dados cadastrados<<\n");
-  imprime();///imprimir os dados cadastrados
+    //cadastro();
+    //printf("Menu cadastro:\n1_Novo\t0_Sair:");
+    //scanf("%d",&op);
+      //if(op==0)//caso 0 sair do loop
+      //{
+        //break;
+      //}
+    //}
+    //printf(">>Dados cadastrados<<\n");
+  //imprime();///imprimir os dados cadastrados
   //-------------
   voltamenu :
-  printf("Menu:\n1Pesquisa por telefone\n2_Remover\n3_Imprimi\n0_Sair:\n:");
+  printf("\nMenu:\n\n1_Inserir\n2_Pesquisa por telefone\n3_Remover\n4_Imprimi\n0_Sair:\n:");
   scanf("%d",&op);
   switch (op)
             {
-              case 1:
+
+             case 1:
+                    {
+                     cadastro();
+                     break;
+                    }
+              case 2:
                     {
                       imprimeponterio(pesquisatelefone());
                       break;
                     }
-              case 2:
-                {
+              case 3:
+                    {
                    imprime();
                    removedado(pesquisatelefone()->telefone);///a pesquisa retorna um ponteiro para a funcao remover
                    printf("Removido... imprimindo lista \n");
                    imprime();
                    break;
-                }
-              case 3:
+                    }
+              case 4:
                     {
                       imprime();
                       break;
@@ -222,4 +228,4 @@ int main()
 
   goto voltamenu; //simplesmente volta ao menu
   return 0;
-}
+}}
