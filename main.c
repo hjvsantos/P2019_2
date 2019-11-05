@@ -104,7 +104,7 @@ lista *pesquisatelefone()
      getchar();///comentar ai ñ pede enter
     if (strcmp (ponteiro->telefone,pesq)== 0 )  // achou !!
     {
-            printf("\nRegistro encontrado para realizar a remoção\n");
+            printf("\nRegistro encontrado\n");
          return (ponteiro);        // retorna um ponteiro para função imprimr
 
                    }
