@@ -2,6 +2,11 @@
 #include <string.h>
 #include <stdlib.h>
 
+#define VERSAO1
+#define VERSAO2
+#define VERSAO3
+
+
 //Ajustes - tassia
 typedef struct Temp
   {
@@ -185,7 +190,7 @@ int main()
   while(fgets(texto_str, 20, pont_arq) != NULL)
   printf("%s", texto_str);
 
-  //fechando o arquivo
+  //fechando o arquivo - é pra tá aqui mesmo?!
   fclose(pont_arq);
 
   getch();
@@ -195,6 +200,55 @@ int main()
   criaLista();///iniciar a lista
   int op;
   voltamenu :
+  //#ifdef VERSAO1
+  printf("\nMenu:\n\n1_Inserir\n0_Sair:\n:");
+  scanf("%d",&op);
+  switch (op)
+            {
+
+             case 1:
+                    {
+                     cadastro();
+                     break;
+                    }
+              case 0:
+                    {
+                 libera (inicio);
+                      return 0;
+                      break;
+                    }
+            }
+    //#endif
+
+  //#ifdef VERSAO2
+  printf("\nMenu:\n\n1_Inserir\n2_Remover\n0_Sair:\n:");
+  scanf("%d",&op);
+  switch (op)
+            {
+
+             case 1:
+                    {
+                     cadastro();
+                     break;
+                    }
+              case 2:
+                    {
+                   //imprime();
+                   removedado(pesquisatelefone()->telefone);///a pesquisa retorna um ponteiro para a funcao remover
+                   printf("Removido!!! \n");
+                   //imprime();
+                   break;
+                    }
+              case 0:
+                    {
+                 libera (inicio);
+                      return 0;
+                      break;
+                    }
+            }
+    //#endif
+
+  //#ifdef VERSAO3
   printf("\nMenu:\n\n1_Inserir\n2_Pesquisa por telefone\n3_Remover\n4_Imprimir\n0_Sair:\n:");
   scanf("%d",&op);
   switch (op)
@@ -230,7 +284,7 @@ int main()
                       break;
                     }
             }
-
+    //#endif
 
   goto voltamenu; //simplesmente volta ao menu
   return 0;

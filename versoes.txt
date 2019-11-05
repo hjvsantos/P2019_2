@@ -1,3 +1,9 @@
-#ifdef
+#define VERSAO1
 
-#enif
+
+#define VERSAO2
+
+
+#define VERSAO3
+
+
