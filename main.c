@@ -175,7 +175,7 @@ void removedado(char *dado)
       return 0; // Nao achou !!!
   }
 }
-//teste
+//teste1
 configuraMenu(int op){
 printf("Insira qual versao voce quer usar: 1, 2 ou 3.  \n");
 scanf("%d", &op);
@@ -288,9 +288,6 @@ int main()
   char *result;
   int i;
   int op;
-
-  printf("Informe a versao desejada:\n\n1_Versao 1\n2_Versao 2\n3_Versao 3\n");
-  scanf("%i", &op);
 
   // Abre um arquivo TEXTO para LEITURA
   arq = fopen("versoes.txt", "rt");
