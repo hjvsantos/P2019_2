@@ -177,8 +177,12 @@ void removedado(char *dado)
 }
 
 configuraMenu(int op){
+printf("Insira qual versao voce quer usar: 1, 2 ou 3.  \n");
+scanf("%d", &op);
+
     if(op==1){
-        //#ifdef VERSAO1
+
+#ifdef VERSAO1
   criaLista();
   voltamenu:
   printf("\nMenu:\n\n1_Inserir\n0_Sair:\n:");
@@ -199,9 +203,10 @@ configuraMenu(int op){
                     }
             }
         goto voltamenu;
-    //#endif
+#endif
     }else if(op == 2){
-        //#ifdef VERSAO2
+
+#ifdef VERSAO2
   criaLista();
   voltamenu1:
   printf("\nMenu:\n\n1_Inserir\n2_Remover\n0_Sair:\n:");
@@ -229,10 +234,11 @@ configuraMenu(int op){
                       break;
                     }
             }
-    //#endif
+#endif
     goto voltamenu1;
     }else if(op == 3){
-         //#ifdef VERSAO3
+
+#ifdef VERSAO3
   criaLista();
   voltamenu2:
   printf("\nMenu:\n\n1_Inserir\n2_Pesquisa por telefone\n3_Remover\n4_Imprimir\n0_Sair:\n:");
@@ -271,7 +277,7 @@ configuraMenu(int op){
                     }
             }
        goto voltamenu2;
-    //#endif
+#endif
     }
 }
 
@@ -303,6 +309,6 @@ int main()
   }
   fclose(arq);
   criaLista();
-  //configuraMenu(3);
+  configuraMenu(op);
   return 0;
 }
