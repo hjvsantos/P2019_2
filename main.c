@@ -173,6 +173,25 @@ void removedado(char *dado)
 
 int main()
 {
+  //LEITURA DE ARQUIVO: criando a variável ponteiro para o arquivo
+  FILE *pont_arq;
+  char texto_str[20]; //acho que nao eh necessario
+
+  //abrindo o arquivo_frase em modo "somente leitura"
+  pont_arq = fopen("arquivo_palavra.txt", "r");
+
+  //enquanto não for fim de arquivo o looping será executado e será impresso o texto
+  //adaptar a nossa realidade!
+  while(fgets(texto_str, 20, pont_arq) != NULL)
+  printf("%s", texto_str);
+
+  //fechando o arquivo
+  fclose(pont_arq);
+
+  getch();
+  return(0);
+  //acaba aqui a estrutura para a leitura do arquivo
+
   criaLista();///iniciar a lista
   int op;
   voltamenu :
