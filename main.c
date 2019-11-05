@@ -175,7 +175,7 @@ void removedado(char *dado)
       return 0; // Nao achou !!!
   }
 }
-
+//teste
 configuraMenu(int op){
 printf("Insira qual versao voce quer usar: 1, 2 ou 3.  \n");
 scanf("%d", &op);
