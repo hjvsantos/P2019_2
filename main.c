@@ -146,7 +146,7 @@ int removedado(int dado)
       antes = inicio;
       while (ptr !=NULL)
       {
-    if (ptr->idade== dado) // achou !!
+    if (ptr->telefone== dado) // achou !!
     {
       if (ptr == inicio) // se esta removendo o primeiro da lista
       {
@@ -189,7 +189,7 @@ int main()
   //imprime();///imprimir os dados cadastrados
   //-------------
   voltamenu :
-  printf("\nMenu:\n\n1_Inserir\n2_Pesquisa por telefone\n3_Remover\n4_Imprimi\n0_Sair:\n:");
+  printf("\nMenu:\n\n1_Inserir\n2_Pesquisa por telefone\n3_Remover\n4_Imprimir\n0_Sair:\n:");
   scanf("%d",&op);
   switch (op)
             {
@@ -208,7 +208,7 @@ int main()
                     {
                    //imprime();
                    removedado(pesquisatelefone()->telefone);///a pesquisa retorna um ponteiro para a funcao remover
-                   printf("Removido... imprimindo lista \n");
+                   printf("Removido!!! \n");
                    //imprime();
                    break;
                     }
