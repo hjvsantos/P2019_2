@@ -278,6 +278,8 @@ scanf("%d", &op);
             }
        goto voltamenu2;
 #endif
+    }else{
+        printf("Opcao invalida");
     }
 }
 
