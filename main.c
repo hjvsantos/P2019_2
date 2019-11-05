@@ -133,7 +133,7 @@ void  libera (lista* l)
 }
 
 ///remove elemento
-int removedado(int dado)
+void removedado(char *dado)
 {
   lista *ptr, *antes;
   if (inicio==NULL)
@@ -146,7 +146,7 @@ int removedado(int dado)
       antes = inicio;
       while (ptr !=NULL)
       {
-    if (ptr->telefone== dado) // achou !!
+    if (strcmp(ptr->telefone,dado)==0) // achou !!
     {
       if (ptr == inicio) // se esta removendo o primeiro da lista
       {
